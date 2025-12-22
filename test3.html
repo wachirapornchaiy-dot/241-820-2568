@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container .item {
+            background-color: lightblue;
+        }
+        .main-container .item {
+            background-color: lightgreen;
+        }
+        .button {
+            background-color: blue;
+            border: 0;
+            padding: 10px;
+        }
+        .button.danger {
+            background-color:palevioletred;
+        }
+        .item1 + .item2 {
+            background-color: blueviolet;
+        }
+        input[type="text"]{
+            border: 2px solid blue;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Container
+        <div class="item">
+            Item 1
+        </div>
+    </div>
+    <div class="foonter-container">
+        Container
+        <div class="item">
+            Item 1
+        </div>
+    </div>
+
+    <!--2. item เป็นลูกของ Container แค่ชั้นเดียว-->
+        <div class="main-container">
+            Container
+            <div class="item">
+                Item 1
+            </div>
+                <div class="item">
+                    Item 2
+            </div>
+            <div class="item">
+                Item 3
+            </div>
+        </div>
+    </div>
+
+    <!--3.มี class ติดกัน-->
+    <button class="botton">Click Me</button>
+    <button class="button acting">Click Me</button>
+    <button class="botton danger">Click Me</button>
+
+    <!--4.มี class ติดกัน-->
+    <div class="item1">Item 1</body>
+    <div class="item2">item2</div>
+    
+    <!--5.attribute selactor-->
+    <input type="text" name="firstname">
+    <input type="text" name="lastname">
+</body>
+</html>
