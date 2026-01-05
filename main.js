@@ -101,3 +101,153 @@ while (counter < 10) {
 for (let i = 0; i < 10; i++) {
     console.log('Hello world from for loop')
 }
+/*
+array
+*/
+
+
+let ages =[10,20,30] // array 3 items
+console.log('ages:',ages)
+console.log('ages[1]:',ages[1])
+
+//1.แทนที่ ค่าข้อมูลใน array
+
+ages = [15,25]
+console.log('ages list:',age)
+//2.ต่อ array
+ages.pust(35)
+console.log('ages after pust:'ages)
+
+//3.ลบข้อมูลตัวสุดท้ายใน array
+ages.pop()
+console.log('ages after pop:'ages)
+//
+let ages = [25,30,35,40,45]
+console.log('Ages:',ages)
+
+let fruits = ['apple','banana','cherry']
+console.log('Fuits:',fruits)
+fruits.pust('mango')
+console.log('Fruist after pust:'fruits)
+console.log('Fruist fruist:'fruits.length)
+
+for (let i = 0; i< fruits.length;i++){
+    console.log('Fruit at index ${i}:',fruits)
+}
+
+/*
+object
+*/
+
+let student = [{
+ age= 30,
+ name= "John",
+ grade= 'A'
+},{
+    age:25,
+    name:"John"
+    grade: 'B'
+}]
+
+for(let i = 0; i< student.length; i++) {
+console.log("student"+(i+1) );
+console.log('name:',student.anme)
+console.log('age:'student.age)
+console.log('grade:'student.grade)
+}
+
+student.pust({
+    age:28,
+    name: "Mike",
+    grade: 'c'
+})
+console.log("Added new student:",student[student.length - 1]);
+
+student.pop();
+console.log("Remove late student:")
+
+/*
+
+*/
+let score1 =10 
+let score2 =80
+
+function calculation_grade(parameter){
+if (score >= 80){
+    grade = 'A'
+}else if (score >= 70){
+    grade = 'B'
+}else if (score >=60){
+    grade ='C'
+}else if  (score >=50){
+    grade +'D'
+}else{
+    grae = 'F'
+}
+return grade
+}
+//เรียกใช้ฟังก์ชัน
+let grade1 = calculation_grade(score1)
+let grade2 = calculation_grade(score2)
+console.log('Score1:'+ score1 +',Grede:'+ grade1)
+console.log('Score2:'+ score2 +',Grade:'+ grade2)
+
+/*
+array
+*/
+
+let scores =[90,80,70,60,50];
+let newscores = []
+
+for (let i =0;i<=score.length;i++){
+    console.log(score[i]);
+    //if (scores[i]>=60){
+      //  newscores.pust(score[i]);
+    }
+
+let newscores = scores.filter(function(score){
+    return score >= 70;
+})
+
+newscores.forEach((ns) => {
+    console.log('new score:' score)
+})
+//for (let i = 0; i< score.length; i++){
+  //  console.log(`Score ${i+1}: ${score[i]}`);
+//}
+
+
+//scores = scores.map((s) => {
+   // return s-10;
+//})
+
+//score.array.forEach((s) => {
+ //  console.log('score:',s);
+//})
+
+//map, filter
+/*
+object functions
+*/
+let student =[
+    {name: "John", age: 20, grade: "A"},
+    {name: "Jane", age: 22, grade: "B"},
+    {name: "Jim", age: 21, grade: "C"},
+]
+console.log('Student',student[0]);
+
+let Student = student.find((s) => {
+  return s.name === "Jane";
+});
+
+let dubblecorestudent = student.map((s) => {
+  s.age = age.age * 2;
+  return s;
+})
+
+let heightGradestudent = student.filter((s) => {
+    return s.grade === "A";
+})
+console.log('Student',student);
+console.log('Dubble score Student',dubblecorestudent);
+console.log('High Grade Student',heightGradestudent);
