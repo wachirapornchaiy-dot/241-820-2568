@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Registration</title>
+    
+    <style>
+        /* CSS เดิมของคุณ (ผมย่อไว้เพื่อประหยัดที่ แต่ทำงานเหมือนเดิมครับ) */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f1b1e7 0%, #83ddf8 100%);
+            --primary-color: #f0b6e8;
+            --accent-color: #5fabf3;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --input-bg: #f7f9fc;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg-gradient); color: var(--text-main); margin: 0;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px;
+        }
+        .container {
+            background-color: var(--card-bg); width: 100%; max-width: 450px; padding: 2.5rem;
+            border-radius: 20px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); position: relative; overflow: hidden;
+        }
+        .container::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 8px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        .header {
+            font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .form-input { margin-bottom: 1.2rem; }
+        .header-form { font-weight: 600; font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; display: block; }
+        .form, textarea {
+            width: 100%; padding: 12px 15px; border: 2px solid var(--input-bg); border-radius: 12px;
+            background-color: var(--input-bg); font-size: 0.95rem; box-sizing: border-box; color: #333;
+        }
+        .form:focus, textarea:focus { outline: none; background-color: #fff; border-color: var(--primary-color); }
+        .flex { display: flex; gap: 15px; flex-wrap: wrap; }
+        .option-group label {
+            display: flex; align-items: center; cursor: pointer; padding: 8px 12px;
+            background: var(--input-bg); border-radius: 8px; font-size: 0.9rem;
+        }
+        .center { text-align: center; margin-top: 2rem; }
+        .button {
+            width: 100%; padding: 14px; font-size: 1rem; font-weight: 700; color: white; border: none;
+            border-radius: 50px; cursor: pointer;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">ลงทะเบียนสมาชิก</div>
+        
+        <div class="form-input">
+            <span class="header-form">ชื่อ</span>
+            <input class="form" name="firstname" type="text" placeholder="ระบุชื่อจริง">
+        </div>
+
+        <div class="form-input">
+            <span class="header-form">นามสกุล</span>
+            <input class="form" name="lastname" type="text" placeholder="ระบุนามสกุล">
+        </div>
+
+        <div class="form-input">
+            <span class="header-form">อายุ</span> 
+            <input class="form" name="age" type="number" min="0" max="100" placeholder="ระบุอายุ">
+        </div>
+
+        <div class="form-input">
+            <span class="header-form">เพศ</span> 
+            <div class="flex option-group">
+                <label><input name="gender" type="radio" value="male"> ชาย</label>
+                <label><input name="gender" type="radio" value="female"> หญิง</label>
+            </div>
+        </div>
+
+        <div class="form-input">
+            <span class="header-form">งานอดิเรก</span>
+            <div class="flex option-group">
+                <label><input name="interest" type="checkbox" value="อ่านหนังสือ"> อ่านหนังสือ</label>
+                <label><input name="interest" type="checkbox" value="ดูหนัง"> ดูหนัง</label>
+                <label><input name="interest" type="checkbox" value="ฟังเพลง"> ฟังเพลง</label>
+            </div>
+        </div>
+
+        <div class="form-input">
+            <span class="header-form">แนะนำตัวเอง</span>
+            <textarea name="description" placeholder="บอกเล่าความเป็นตัวคุณ..."></textarea>
+        </div>
+
+        <div class="center">
+            <button onclick="submitData()" class="button">ยืนยันการสมัคร</button>
+        </div>
+    </div>
+    
+    <script>
+        // แก้ไขชื่อฟังก์ชันให้ตรงกับ onclick ในปุ่ม
+        function submitData() {
+            
+            // 1. แก้ Selector ให้ตรงกับ HTML (name="firstname")
+            let firstNameVal = document.querySelector('input[name="firstname"]').value;
+            let lastNameVal = document.querySelector('input[name="lastname"]').value;
+            let ageVal = document.querySelector('input[name="age"]').value;
+
+            // 2. แก้ namee -> name และเพิ่มการเช็คว่ามีค่าไหม (?)
+            let genderDom = document.querySelector('input[name="gender"]:checked');
+            let genderVal = genderDom ? genderDom.value : "ไม่ระบุ";
+
+            // 3. จัดการ Checkbox (ต้องวนลูปเอาค่า)
+            let interestDom = document.querySelectorAll('input[name="interest"]:checked');
+            let interests = [];
+            interestDom.forEach((item) => {
+                interests.push(item.value);
+            });
+
+            let descriptionVal = document.querySelector('textarea[name="description"]').value;
+
+            // 4. สร้าง Object (แก้ Syntax ที่ผิด)
+            let userData = {
+                firstName: firstNameVal,
+                lastName: lastNameVal,
+                age: ageVal,       // ใช้ค่าตัวแปร ageVal
+                gender: genderVal, // ใช้ค่าตัวแปร genderVal
+                interests: interests,
+                description: descriptionVal
+            };
+
+            console.log('--- ข้อมูลที่ได้รับ ---');
+            console.log(userData); 
+        }
+    </script>
+</body>
+</html>
