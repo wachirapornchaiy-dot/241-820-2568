@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--</body>
+งานอดิเรก:
+          <input type="checkbox" name="hobby" value="reading"> reading
+          <input type="checkbox" name="traveling" value="reading"> traveling
+          <input type="checkbox" name="hobby" value="gaming">gaming
+</body>
+       <script>
+        let checkboxInput = document.querySelector('input[name="hobby"]');
+        for (let i= 0; i<checkboxInput.length;i++){
+        console.log(checkInput[i].value);}
+
+-->
+
+<!--</body>
+      <button onclick="userClick()"> คลิก !!</button>
+      <div onclick="divClick"> คลิก Div</div>
+     <script>
+        function userClick(){
+            console.log("User clicked the button");
+        }
+        function divClick(){
+            console.log("User clicked the div");
+        }
+     </script>
+C
+</html>-->
+<!--<body>
+    <input type="radio" name="gender" value="male" onchange="changeGender()" checked="true"> male
+    <input type="radio" name="gender" value="female" onchange="changeGender()" checked="true"> Female
+    <script>
+        function changeGender(){
+            //เลือก gender ทุก input ออกมา
+            iet gemdersInput = document.querySelectorAll('input[name= "gender"]');
+
+            //ใคร checked อยู่ = เพศโดนเลือก
+            for (let i = 0; i< gendersInput.length; i++){
+                if (gendersInput[i].checked){
+                    console.log("Gender selected:"+ gendersInput[i].value);
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>-->
+<!--body>
+    ชื่อ<input type="text" name="fname" onkeydown="changeFname()"/>
+    <script>
+        function changeFname(){
+            console.log("Key down event detected");
+            //เลือก input element
+            let inputElement = document.querySelector('input[name="fname"]');
+            //ดึงค่า value
+            console.log(inputElement.value);
+        }
+    </script>
+</body>
+</html>-->
+<!--body>
+<div 
+onmouseover="OverItem()"   
+onmouseup="UpItem()" 
+onmousedown="DownItem()"> cick</div>
+    <script>
+         function OverItem(){
+            console.log("Mounse over detected");
+         }
+         function UpItem(){
+            console.log("Mounse up detected");
+         }
+         function DownItem(){
+            console.log("Mounse down detected");
+         }
+    </script>
+</body>
+</html>-->
+<!--body>
+<div id="hi">Hi <span style="display: none;">A</span></div>
+<script>
+    let hiDom = document.getElementById("hi");
+    hiDom.innerHTML = "Hi<b>B</b>";
+
+    console.log(hiDom.textContent);
+    console.log(hiDom.innerText);
+    console.log(hiDom.innerHTML);
+</script>
+</body>
+</html>-->
+<body>
+    <h1>งานอดิเรก</h1>
+    <div id="content"></div>
+
+    <input type="checkbox" name="hobby" value="reading">อ่านหนังสือ
+    <input type="checkbox" name="hobby" value="swimming">ว่ายน้ำ
+    <input type="checkbox" name="hobby" value="geming">เล่นเกม
+    <button onclick="submitHobby()" >Submit</button>
+    <script>
+        function submitHobby(){
+        //เลือก ไป checkbox ที่มี name เป็น hobby ทั้งหมด
+        let hobbies = cocument.querySelectorAll('input[name="hobby"]');
+        let contentHTML='<li>';
+        //เอาค่าที่เลือก ออกมา
+        for(let i=0; i<bobbies.length; i++){
+            if(hobbies[i].checked){
+                contentHTML += '<li>' + hobbies[i].value + '</li>'
+            }
+        }
+        //วนค่าที่เลือก มาแสดงในรูปแบบ ul li ใส่ html
+        contentHTML += '</ul>';
+
+        //ใส่ html ลงใน div id content
+        let contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = contentHTML
+        }
+    </script>
+</body>
