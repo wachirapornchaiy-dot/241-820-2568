@@ -13,7 +13,7 @@ let counter = 1;
 let conn = null
 
 const initMySQL = async () => {
-    const conn = await mysql.createConnection({
+    conn = await mysql.createConnection({
   host: 'localhost',
   port: 8820,
   user: 'root',
